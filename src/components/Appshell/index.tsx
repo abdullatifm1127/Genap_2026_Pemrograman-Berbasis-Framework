@@ -1,17 +1,23 @@
 import Navbar from "../navbar";
 
-type AppShellProps = {
-    children: React.ReactNode;
-}
+export default function AppShell({ children }: { children: React.ReactNode }) {
+  return (
+    <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <Navbar />
 
-const Appshell = (props: AppShellProps) => {
-    const { children } = props;
-    return (  
-            <main>
-                <Navbar />
-                {children}
-            </main>
-        
-    );
+      <main style={{ flex: 1, padding: "20px" }}>
+        {children}
+      </main>
+
+      <footer
+        style={{
+          padding: "15px",
+          textAlign: "center",
+          borderTop: "1px solid #ddd",
+        }}
+      >
+        <p>© 2026 My App. All rights reserved.</p>
+      </footer>
+    </div>
+  );
 }
-export default Appshell;
